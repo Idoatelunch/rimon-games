@@ -7,7 +7,7 @@
     gameLoadingStart:function(){},gameLoadingFinished:function(){},gameLoadingProgress:function(){},
     gameplayStart:function(){},gameplayStop:function(){},
     roundStart:function(){},roundEnd:function(){},muteAd:function(){},
-    commercialBreak:function(){return ok();},
+    commercialBreak:function(){return new Promise(function(r){setTimeout(r,400);});},
     rewardedBreak:function(){return ok(true);},
     happyTime:function(){},customEvent:function(){},
     captureError:function(){},logError:function(){},
