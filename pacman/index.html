@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<title>Pac-Man</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<style>
+@font-face{font-family:'BDCartoonShoutRegular';src:url('BD_Cartoon_Shout-webfont.ttf') format('truetype')}
+html,body{margin:0;height:100%;background:#000;overflow:hidden;touch-action:none}
+#shim{font-family:BDCartoonShoutRegular;position:absolute;visibility:hidden}
+#wrap{position:absolute;left:50%;top:50%;width:342px;height:450px;transform-origin:0 0}
+#pacman{width:342px;height:450px}
+#start{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);font:bold 18px sans-serif;padding:12px 28px;border:0;border-radius:24px;background:#ffe600;color:#000;z-index:5}
+</style>
+</head>
+<body>
+<div id="shim">shim for font face</div>
+<div id="wrap"><div id="pacman"></div></div>
+<button id="start">TAP TO START</button>
+<script src="modernizr-1.5.min.js"></script>
+<script src="pacman.js"></script>
+<script src="../_touch.js"></script>
+<script>
+(function(){
+  var el=document.getElementById("pacman");
+  function fit(){var s=Math.min(innerWidth/342,innerHeight/450);var w=document.getElementById('wrap');
+    w.style.transform='scale('+s+')';w.style.marginLeft=(-171*s)+'px';w.style.marginTop=(-225*s)+'px';}
+  addEventListener('resize',fit);fit();
+  if(Modernizr.canvas&&Modernizr.localstorage&&Modernizr.audio&&(Modernizr.audio.ogg||Modernizr.audio.mp3)){
+    setTimeout(function(){PACMAN.init(el,"./");},0);
+  } else { el.innerHTML="Sorry, needs a modern browser"; }
+  var b=document.getElementById('start');
+  b.addEventListener('click',function(){window.__rimonKey([78,'n']);b.style.display='none';});
+  b.addEventListener('touchend',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.keyCode===78)b.style.display='none';});
+})();
+</script>
+</body>
+</html>
