@@ -1,0 +1,28 @@
+<html>
+  <head><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' data: blob:; connect-src 'self' data: blob:; frame-src 'self' about: blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'"><script>/* Rimon guard: no pop-ups/new windows */try{window.open=function(){return null};}catch(e){}</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gun Mayhem 2 </title>
+    <meta name="robots" content="noindex,nofollow" />
+
+    <link rel="icon" type="image/x-icon" href="gun-mayhem-2.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="gun-mayhem-2.png" />
+  </head>
+  <body>
+
+    <div id="ruffle" width="100%" height="100%"></div>
+    <script src="ruffle.js"></script>
+    <script>
+      window.RufflePlayer = window.RufflePlayer || {};
+      window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("ruffle");
+        player.id = "player";
+        player.style.width = "100%";
+        player.style.height = "100%";
+        container.appendChild(player);
+        player.load("gun-mayhem-2.swf");
+      });
+    </script>
+  </body>
+</html>
